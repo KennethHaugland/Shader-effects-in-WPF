@@ -1,0 +1,79 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPixelShaderWorkbench"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="604" Width="978">
+    <Window.Resources>
+        <ImageBrush ImageSource="Images\river_whale.jpg" x:Key="TwitterBirdsImage"/>
+      <local:RectangleToRectConverter x:Key="convertRect"/>
+    </Window.Resources>
+    <StackPanel>
+        <TabControl>
+            <TabItem Header="Compiled files">
+                <StackPanel Height="517">
+                    <TextBox Name="txtOutput" Height="300" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Generate C#/VB.NET code">
+                <StackPanel>
+                    <Button Name="btnAddANewFxFile" Click="btnAddANewFxFile_Click" >Add a new Fx file</Button>
+                    <WrapPanel>
+                        <Label Width="150" Content="Select fx file to generate: "/>
+                        <ComboBox Width="300" Name="cmbFxFiles" DisplayMemberPath="FileNameWithoutExtension"></ComboBox>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Width="150" Content="Generate code in: "/>
+                        <ComboBox Width="300" Name="cmbCodeType"></ComboBox>
+                    </WrapPanel>
+                    <Button Name="btnGenerateCode" Click="btnGenerateCode_Click" >Generate code</Button>
+                    <TextBox Height="448" Name="txtGeneratedCode">
+
+                    </TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Workbench">
+                <StackPanel>
+                    <Grid Height="400">
+        
+                        <Image VerticalAlignment="Top" HorizontalAlignment="Left"  x:Name="Img" Source="Images\cool-nature-desktop-backgrounds-wallpaper.jpg" Width="Auto" Height="356" Loaded="Image_Loaded" Panel.ZIndex="2" >
+                            <!--<Image.Effect>
+                                <local:GaussianEffect/>
+                                <local:ScratchedShader></local:ScratchedShader>
+                                <local:BlendTwoPicturesEffect Input2="{StaticResource TwitterBirdsImage}" MixInAmount="{Binding ElementName=slider1, Path=Value}" />
+                                <local:BrightContrastEffect Brightness="{Binding ElementName=slider1, Path=Value}" Contrast="{Binding ElementName=slider2, Path=Value}" />
+                            </Image.Effect>-->
+                        </Image>
+                        <Rectangle VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="BoundImageRect"  Height="50" Width="50" Panel.ZIndex="4" Stroke="Black" Fill="Transparent"  StrokeThickness="2" MouseDown="BoundImageRect_MouseDown" MouseMove="BoundImageRect_MouseMove" MouseUp="BoundImageRect_MouseUp" >
+                            <Rectangle.RenderTransform>
+                                <TranslateTransform x:Name="Trans" X="0" Y="0"></TranslateTransform>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Image  VerticalAlignment="Top" HorizontalAlignment="Left"  Width="Auto" Height="356" Source="{Binding ElementName=Img, Path=Source }" Panel.ZIndex="3">
+                            <Image.Clip>
+                                <RectangleGeometry RadiusX="{Binding ElementName=BoundImageRect,Path=RadiusX}" RadiusY="{Binding ElementName=BoundImageRect,Path=RadiusY}" >
+                                    <RectangleGeometry.Rect>
+                                        <MultiBinding Converter="{StaticResource convertRect}">
+                                            <Binding ElementName="BoundImageRect" Path="Width"/>
+                                            <Binding ElementName="BoundImageRect" Path="Height"/>
+                                            <Binding ElementName="Trans" Path="X"/>
+                                            <Binding ElementName="Trans" Path="Y"/>
+                                        </MultiBinding>
+                                    </RectangleGeometry.Rect>
+                                </RectangleGeometry>
+                            </Image.Clip>
+                            <Image.Effect>
+                                <local:GaussianEffect></local:GaussianEffect>
+                            </Image.Effect>
+                        </Image>
+                    </Grid>
+
+                    <Slider Name="slider1"  Maximum="1" Minimum="0" Value="0"/>
+                    <Slider Name="slider2"  Maximum="1" Minimum="0" Value="0"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>

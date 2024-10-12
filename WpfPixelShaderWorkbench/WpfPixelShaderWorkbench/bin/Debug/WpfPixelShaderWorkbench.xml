@@ -1,0 +1,258 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WpfPixelShaderWorkbench
+</name>
+</assembly>
+<members>
+<member name="T:WpfPixelShaderWorkbench.Application">
+<summary>
+Application
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.Application.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.Application.Main">
+<summary>
+Application Entry Point.
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.ParseShader(System.String,System.String)">
+ <summary>
+ Returns a shader model constructed from the information found in the
+ given pixel shader file.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.CreateRegister(System.Text.RegularExpressions.Match)">
+ <summary>
+ Returns a ShaderModelConstantRegister object with the information contained in
+ the given regular expression match.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.GetRegisterType(System.String)">
+ <summary>
+ Returns the CLR type used to represent the given HLSL register type.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.OverrideTypeIfAllowed(System.String,System.Type@)">
+ <summary>
+ Replaces the register type with the desired type, if they are compatible.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.GetStandardValues(System.Type,System.Object@,System.Object@,System.Object@)">
+ <summary>
+ Sets the out parameters to the standard min, max, and default values for the given type.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.ConvertValue(System.String,System.Type,System.Object@)">
+ <summary>
+ Converts the given string value into a double, Point, Point3D, or Color.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.ParseInitializerValue(System.String,System.Type,System.Object@)">
+ <summary>
+ Parses the string representation of an HLSL float, float2, float3, or float4 value,
+ setting the final parameter to the corresponding double, Point, Point3D, or Color if possible.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.ParseNumbers(System.String)">
+ <summary>
+ Parses the string representation of an HLSL float, float2, float3, or float4 value,
+ returning an array of doubles (possibly empty).
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.ConvertToByte(System.Double)">
+ <summary>
+ Converts a double-precision floating point number between 0 and 1 to a byte.
+ </summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.EffectClassToShader.GetValidId(System.String,System.String,System.Boolean)">
+ <summary>
+ Returns a valid C# or Visual Basic identifier based on the given string.
+ </summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.ShaderModelConstantRegister">
+ <summary>
+  Contains the details for each register described in a HLSL shader file
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.RegisterName">
+ <summary>
+ The name of this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.RegisterType">
+ <summary>
+  The .NET type of this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.RegisterNumber">
+ <summary>
+ The register number of this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.Description">
+ <summary>
+ The description of this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.MinValue">
+ <summary>
+ The minimum value for this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.MaxValue">
+ <summary>
+ The maximum value for this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.DefaultValue">
+ <summary>
+ The default value of this register variable.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderModelConstantRegister.AffiliatedControl">
+ <summary>
+ The user interface control associated with this register variable.
+ </summary>
+</member>
+<member name="F:WpfPixelShaderWorkbench.MagnifierEffect.MagnificationProperty">
+ <summary>
+ Gets or sets the magnification.
+ </summary>
+</member>
+<member name="F:WpfPixelShaderWorkbench.MagnifierEffect.OuterRadiusProperty">
+ <summary>
+ Gets or sets the magnifier outer radius.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.MagnifierEffect.Center">
+ <summary>
+ Gets or sets the magnifier center.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.MagnifierEffect.InnerRadius">
+ <summary>
+ Gets or sets the magnifier inner radius.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.MagnifierEffect.Magnification">
+ <summary>
+ Gets or sets the magnification.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.MagnifierEffect.OuterRadius">
+ <summary>
+ Gets or sets the magnifier outer radius.
+ </summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.ShaderEffectBase">
+ <summary>
+ Base class for all shader effects used in the application.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.ShaderEffectBase.Input">
+ <summary>
+ Gets, Sets the effect input.
+ </summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.MainWindow">
+<summary>
+MainWindow
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.MainWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.Global.MakePackUri(System.String)">
+ <summary>
+ Helper method for generating a "pack://" URI for a given relative file based on the
+ assembly that this class is in.
+ </summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.My.MyWpfExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for WPF
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.MyWpfExtension.Application">
+ <summary>
+ Returns the application object for the running application
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.MyWpfExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.MyWpfExtension.User">
+ <summary>
+ Returns information for the current user.  If you wish to run the application with the current 
+ Windows user credentials, call My.User.InitializeWithWindowsUser().
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.MyWpfExtension.Log">
+ <summary>
+ Returns the application log. The listeners can be configured by the application's configuration file.
+ </summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.MyWpfExtension.Windows">
+ <summary>
+ Returns the collection of Windows defined in the project.
+ </summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:WpfPixelShaderWorkbench.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+<summary>
+CreateInstance
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+<summary>
+GetPropertyValue
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+<summary>
+SetPropertyValue
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+<summary>
+CreateDelegate
+</summary>
+</member>
+<member name="M:WpfPixelShaderWorkbench.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+<summary>
+AddEventHandler
+</summary>
+</member>
+</members>
+</doc>
